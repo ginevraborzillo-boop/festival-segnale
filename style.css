@@ -1,5 +1,4 @@
-/* Stile iniziale: tipografia, colori e variabili CSS sono già predisposti.
-   Lavoreremo su collegamenti, CSS condiviso e disposizione delle schede. */
+/* Stile iniziale: tipografia, colori e variabili CSS sono già predisposti. */
 
 /* Scelte comuni: ogni regola usa var() per richiamarne il valore. */
 :root {
@@ -7,12 +6,13 @@
   --colore-primario-scuro: #681a07;
   --colore-sfondo: #f5f2e9;
   --colore-testo: #202923;
---font-testo: "Trebuchet MS", Arial, sans-serif;
---font-titoli: "Century Gothic", Futura, "Trebuchet MS", sans-serif;
-
+  --font-testo: "Trebuchet MS", Arial, sans-serif;
+  --font-titoli: "Century Gothic", Futura, "Trebuchet MS", sans-serif;
 }
 
-* {
+*,
+*::before,
+*::after {
   box-sizing: border-box;
 }
 
@@ -46,7 +46,7 @@ a:focus-visible {
 
 .site-header {
   padding: 1.25rem 0;
-border-bottom: 4px solid var(--colore-primario);
+  border-bottom: 4px solid var(--colore-primario);
 }
 
 .brand {
@@ -175,8 +175,6 @@ h3 {
   }
 }
 
-
-
 .event-card {
   min-width: 0;
   margin-bottom: 0;
@@ -193,7 +191,7 @@ h3 {
 }
 
 .event-body {
-padding: 1.5rem;
+  padding: 1.5rem;
 }
 
 .event-body p:last-child {
@@ -225,3 +223,80 @@ padding: 1.5rem;
   top: 1rem;
 }
 
+.gallery-swiper {
+  position: relative;
+  width: 100%;
+  max-width: 54rem;
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.gallery-swiper .swiper-slide {
+  min-width: 0;
+  margin: 0;
+}
+
+.gallery-swiper img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 0.75rem;
+}
+
+.gallery-swiper figcaption {
+  padding: 0.75rem 0;
+}
+
+.gallery-swiper .swiper-button-prev,
+.gallery-swiper .swiper-button-next {
+  top: calc(50% - 2rem);
+  width: 2.5rem;
+  height: 2.5rem;
+  margin-top: 0;
+  transform: none;
+  border: 0;
+  border-radius: 0.25rem;
+  background: #fff;
+  color: var(--colore-primario);
+  cursor: pointer;
+}
+
+.gallery-swiper .swiper-button-prev {
+  left: 0.25rem;
+}
+
+.gallery-swiper .swiper-button-next {
+  right: 0.25rem;
+}
+
+.gallery-swiper .swiper-button-prev::after,
+.gallery-swiper .swiper-button-next::after {
+  font-family: Arial, sans-serif;
+  font-size: 1.75rem;
+  font-weight: bold;
+}
+
+.gallery-swiper .swiper-button-prev::after {
+  content: "‹";
+}
+
+.gallery-swiper .swiper-button-next::after {
+  content: "›";
+}
+
+.map-container {
+  width: 100%;
+  max-width: 54rem;
+  margin: 1.5rem 0 0;
+  border-radius: 0.75rem;
+  overflow: hidden;
+  border: 1px solid #b7c0b7;
+  background: #eae6db;
+}
+
+.map-container iframe {
+  display: block;
+  width: 100%;
+  height: 28rem;
+  border: 0;
+}
