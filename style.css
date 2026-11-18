@@ -1,13 +1,48 @@
-/* Stile iniziale: tipografia, colori e variabili CSS sono già predisposti. */
+/* --- Caricamento Font Locali --- */
+@font-face {
+  font-family: "Clash Display";
+  src: url("fonts/ClashDisplay-Semibold.woff2") format("woff2");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
 
-/* Scelte comuni: ogni regola usa var() per richiamarne il valore. */
+@font-face {
+  font-family: "Clash Display";
+  src: url("fonts/ClashDisplay-Bold.woff2") format("woff2");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "DM Sans";
+  src: url("fonts/DMSans_24pt-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "DM Sans";
+  src: url("fonts/DMSans_24pt-SemiBold.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* --- Variabili Colori e Tipografia --- */
 :root {
-  --colore-primario: #91260c;
-  --colore-primario-scuro: #681a07;
-  --colore-sfondo: #f5f2e9;
-  --colore-testo: #202923;
-  --font-testo: "Trebuchet MS", Arial, sans-serif;
-  --font-titoli: "Century Gothic", Futura, "Trebuchet MS", sans-serif;
+  --colore-primario: #782b7a;          /* Viola intenso */
+  --colore-primario-scuro: #470b49;    /* Viola scuro hover */
+  --colore-sfondo: #c3e7ce;            /* Verde chiarissimo / menta pallido */
+  --colore-testo: #132218;             /* Verde-antracite scuro ad altissimo contrasto */
+  --colore-testo-secondario: #115338;  /* Verde bosco scuro */
+  --colore-accento: #0284c7;           /* Cyan */
+  --colore-bordo: #c9ddd0;             /* Bordo verde tenue */
+
+  --font-testo: "DM Sans", sans-serif;
+  --font-titoli: "Clash Display", sans-serif;
 }
 
 *,
@@ -33,9 +68,10 @@ a:hover {
   text-decoration-thickness: 3px;
 }
 
-a:focus-visible {
-  outline: 3px solid var(--colore-testo);
-  outline-offset: 4px;
+a:focus-visible,
+button:focus-visible {
+  outline: 3px solid var(--colore-primario);
+  outline-offset: 3px;
 }
 
 .container {
@@ -44,72 +80,115 @@ a:focus-visible {
   margin: 0 auto;
 }
 
+/* --- Intestazione Sticky --- */
 .site-header {
-  padding: 1.25rem 0;
-  border-bottom: 4px solid var(--colore-primario);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: var(--colore-sfondo);
+  padding: 0.75rem 0;
+  border-bottom: 3px solid var(--colore-primario);
+}
+
+@media (min-width: 600px) {
+  .site-header {
+    padding: 1.25rem 0;
+    border-bottom-width: 4px;
+  }
 }
 
 .brand {
   display: inline-block;
   color: var(--colore-testo);
-  font-size: 1.75rem;
-  font-weight: bold;
-  line-height: 1.2;
+  font-family: var(--font-titoli);
+  font-size: 1.85rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.15;
   text-decoration: none;
 }
 
 .brand span {
   display: block;
   margin-top: 0.25rem;
+  font-family: var(--font-testo);
   font-size: 0.875rem;
-  font-weight: normal;
+  font-weight: 400;
+  letter-spacing: 0;
+  color: var(--colore-testo-secondario);
 }
 
+/* --- Menu Responsive --- */
 nav {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
   margin-top: 1rem;
 }
 
 nav a {
-  display: inline-block;
-  margin-right: 1rem;
+  display: block;
   padding: 0.25rem 0;
+  text-decoration: none;
+}
+
+@media (min-width: 600px) {
+  nav {
+    flex-direction: row;
+    gap: 1.5rem;
+  }
+
+  nav a {
+    display: inline-block;
+  }
 }
 
 nav a[aria-current="page"] {
-  font-weight: bold;
+  font-weight: 700;
+  border-bottom: 2px solid var(--colore-primario);
 }
 
+/* --- Tipografia e Sezioni --- */
 .intro {
   padding: 3rem 0 1rem;
 }
 
 .eyebrow,
-.event-meta {
-  color: #46564b;
-  font-size: 0.875rem;
-  font-weight: bold;
+.event-meta,
+.event-place {
+  color: var(--colore-testo-secondario);
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
 }
 
 h1,
 h2,
 h3 {
   font-family: var(--font-titoli);
-  line-height: 1.2;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
 }
 
 h1 {
   max-width: 18ch;
   margin: 0.75rem 0 1.25rem;
-  font-size: 2.5rem;
+  font-size: 2.6rem;
+  font-weight: 700;
+  color: var(--colore-testo);
 }
 
 h2 {
-  font-size: 1.75rem;
+  font-size: 1.85rem;
+  font-weight: 600;
+  color: var(--colore-primario);
 }
 
 h3 {
   margin: 0.5rem 0 0.75rem;
-  font-size: 1.375rem;
+  font-size: 1.4rem;
+  font-weight: 600;
 }
 
 .lead {
@@ -128,12 +207,14 @@ h3 {
   border-radius: 0.5rem;
   background: var(--colore-primario);
   color: #ffffff;
-  font-weight: bold;
+  font-weight: 700;
   text-decoration: none;
+  transition: background 0.2s ease, transform 0.1s ease;
 }
 
 .button-link:hover {
   background: var(--colore-primario-scuro);
+  transform: translateY(-1px);
 }
 
 .content-section {
@@ -147,6 +228,7 @@ h3 {
   height: auto;
   margin-top: 1.5rem;
   border-radius: 0.75rem;
+  border: 1px solid var(--colore-bordo);
 }
 
 .venues {
@@ -157,6 +239,7 @@ h3 {
   margin-bottom: 0.5rem;
 }
 
+/* --- Griglia Eventi (Programma) --- */
 .event-grid {
   display: grid;
   grid-template-columns: 1fr;
@@ -179,7 +262,7 @@ h3 {
   min-width: 0;
   margin-bottom: 0;
   overflow: hidden;
-  border: 1px solid #b7c0b7;
+  border: 1px solid var(--colore-bordo);
   border-radius: 0.75rem;
   background: #ffffff;
 }
@@ -198,15 +281,11 @@ h3 {
   margin-bottom: 0;
 }
 
-.event-place {
-  color: #46564b;
-  font-size: 0.875rem;
-}
-
+/* --- Footer e Accessibilità --- */
 .site-footer {
   padding: 1.25rem 0;
-  border-top: 1px solid #b7c0b7;
-  color: #46564b;
+  border-top: 1px solid var(--colore-bordo);
+  color: var(--colore-testo-secondario);
   font-size: 0.875rem;
 }
 
@@ -216,13 +295,16 @@ h3 {
   left: 1rem;
   padding: 0.75rem 1rem;
   background: #ffffff;
-  color: var(--colore-testo);
+  color: var(--colore-primario);
+  border: 2px solid var(--colore-primario);
+  font-weight: 700;
 }
 
 .skip-link:focus {
   top: 1rem;
 }
 
+/* --- Galleria Swiper --- */
 .gallery-swiper {
   position: relative;
   width: 100%;
@@ -250,23 +332,23 @@ h3 {
 .gallery-swiper .swiper-button-prev,
 .gallery-swiper .swiper-button-next {
   top: calc(50% - 2rem);
-  width: 2.5rem;
-  height: 2.5rem;
+  width: 2.75rem;
+  height: 2.75rem;
   margin-top: 0;
   transform: none;
-  border: 0;
-  border-radius: 0.25rem;
-  background: #fff;
+  border: 1px solid var(--colore-bordo);
+  border-radius: 0.35rem;
+  background: #ffffff;
   color: var(--colore-primario);
   cursor: pointer;
 }
 
 .gallery-swiper .swiper-button-prev {
-  left: 0.25rem;
+  left: 0.5rem;
 }
 
 .gallery-swiper .swiper-button-next {
-  right: 0.25rem;
+  right: 0.5rem;
 }
 
 .gallery-swiper .swiper-button-prev::after,
@@ -284,14 +366,15 @@ h3 {
   content: "›";
 }
 
+/* --- Mappa --- */
 .map-container {
   width: 100%;
   max-width: 54rem;
   margin: 1.5rem 0 0;
   border-radius: 0.75rem;
   overflow: hidden;
-  border: 1px solid #b7c0b7;
-  background: #eae6db;
+  border: 1px solid var(--colore-bordo);
+  background: #f3dfe4;
 }
 
 .map-container iframe {

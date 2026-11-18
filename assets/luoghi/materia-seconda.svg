@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" width="1200" height="800">
+  <rect width="1200" height="800" fill="#faedf0" />
+  <rect x="132" y="120" width="520" height="480" rx="36" fill="#115338" />
+  <rect x="200" y="204" width="332" height="18" rx="9" fill="#faedf0" />
+  <rect x="200" y="284" width="332" height="18" rx="9" fill="#faedf0" />
+  <rect x="200" y="364" width="240" height="18" rx="9" fill="#faedf0" />
+  <circle cx="840" cy="252" r="146" fill="#0284c7" />
+  <!-- Cartella centrale sovrapposta (Aggiornata a #782b7a) -->
+  <rect x="440" y="280" width="600" height="380" rx="36" fill="#782b7a" />
+</svg>

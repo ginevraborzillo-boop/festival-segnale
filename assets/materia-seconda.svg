@@ -1,1 +1,10 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 600" width="900" height="600"><title>Forme sovrapposte come campioni di materiali</title><rect width="900" height="600" fill="#e9e3d6"/><rect x="100" y="90" width="390" height="360" rx="25" fill="#245c49"/><rect x="330" y="210" width="450" height="290" rx="25" fill="#c65c36"/><circle cx="630" cy="190" r="110" fill="#edca68"/><path d="M150 160h250M150 220h250M150 280h180" stroke="#f5f2e9" stroke-width="12"/></svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" width="1200" height="800">
+  <rect width="1200" height="800" fill="#faedf0" />
+  <rect x="132" y="120" width="520" height="480" rx="36" fill="#115338" />
+  <rect x="200" y="204" width="332" height="18" rx="9" fill="#faedf0" />
+  <rect x="200" y="284" width="332" height="18" rx="9" fill="#faedf0" />
+  <rect x="200" y="364" width="240" height="18" rx="9" fill="#faedf0" />
+  <circle cx="840" cy="252" r="146" fill="#0284c7" />
+  <!-- Cartella centrale sovrapposta (Aggiornata a #782b7a) -->
+  <rect x="440" y="280" width="600" height="380" rx="36" fill="#782b7a" />
+</svg>
